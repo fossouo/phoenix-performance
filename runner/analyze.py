@@ -78,8 +78,13 @@ def process():
 	control_chars = ''.join(map(unichr, [38] + range(127,256)))
 	control_char_re = re.compile('[%s]' % re.escape(control_chars))
 
-	csvs = [x for x in glob.glob("*/output.csv") if x[0].isdigit()]
+	#csvs = [x for x in glob.glob("*/output.csv*") if x[0].isdigit()]
+	csvs = [x for x in glob.glob("*/output.csv*")]
 
+	if len(csvs) == 0:
+		print 'Found no CSV results'
+		return []
+	print 'All csvs %s' % (csvs)
 	for csvf in csvs:
 		with open(csvf) as fd:
 			r = csv.reader(fd)
@@ -98,6 +103,7 @@ def process():
 				if ts > maxTimestamp:
 					maxTimestamp = ts
 
+	print 'failCount=%d, rowCount=%d' % (failCount, rowCount)
 	failRatio = "%0.2f" % (100.0 * failCount / rowCount)
 	print "Measure,Min,Max,Median,90,95,99,99.9,TotalReq,FailRatio"
 	outputMeasure("elapsed", elapsed, rowCount, failRatio)
