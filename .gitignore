@@ -4,3 +4,4 @@ phoenix
 phoenix*.jar
 hbase*.jar
 tpcds-gen/*.o
+tpcds-gen/target
