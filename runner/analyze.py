@@ -79,7 +79,7 @@ def process():
 	control_char_re = re.compile('[%s]' % re.escape(control_chars))
 
 	#csvs = [x for x in glob.glob("*/output.csv*") if x[0].isdigit()]
-	csvs = [x for x in glob.glob("*/output.csv*")]
+	csvs = [x for x in glob.glob("output.csv*")]
 
 	if len(csvs) == 0:
 		print 'Found no CSV results'
