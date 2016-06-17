@@ -11,6 +11,9 @@ Sample instructions:
 	./build_driver.sh && \
 		./setup_testenv.sh
 
+	# Install numpy and scipy
+	yum install -y numpy scipy
+
 	# Switch into the directory for running tests
 	cd runner
 	# Run various styles of queries providing the JMX "scenario"
