@@ -19,11 +19,11 @@ if [ X"$CARBON" != "X" ]; then
 fi
 
 # Semi point lookups.
-python $mydir/runTest.py $CARBONARG \
+python runTest.py $CARBONARG \
 	-i $1 \
 	-m $HMASTER \
-	-v VAR_REQUESTS_PER_THREAD=3000 \
-	-v VAR_NUM_THREADS=8 \
+	-v VAR_REQUESTS_PER_THREAD=1500 \
+	-v VAR_NUM_THREADS=4 \
 	-v VAR_RAMP_TIME=1 \
-	-v VAR_POOL_MAX=8 \
+	-v VAR_POOL_MAX=4 \
 	-v VAR_ZOOKEEPER_QUORUM=${ZOOKEEPER_ENDPOINT}
