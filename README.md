@@ -10,3 +10,8 @@ Sample instructions:
 	# Setup the test environment.
 	./build_driver.sh && \
 		./setup_testenv.sh
+
+	# Switch into the directory for running tests
+	cd runner
+	# Run various styles of queries providing the JMX "scenario"
+	./RunPointStyle.sh ../jmeter_tests/Point_NoJoin_NoGroup_Pri1.jmx

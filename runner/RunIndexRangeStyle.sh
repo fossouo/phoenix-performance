@@ -21,6 +21,7 @@ fi
 # Semi point lookups.
 python runTest.py $CARBONARG \
 	-i $1 \
+	-m $HMASTER \
 	-v VAR_REQUESTS_PER_THREAD=500 \
 	-v VAR_NUM_THREADS=4 \
 	-v VAR_RAMP_TIME=1 \
