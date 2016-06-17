@@ -50,7 +50,7 @@ echo "Will build version $TAG"
 FILE=jmeter-patch-$BRANCH
 if [ -f patches/$FILE ]; then
 	echo "Applying JMeter compatibility patches"
-	(cd phoenix && patch -p0 < ../patches/$FILE)
+	(cd phoenix && git apply < ../patches/$FILE)
 fi
 
 # Build.
