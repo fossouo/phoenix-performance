@@ -19,7 +19,7 @@ if [ X"$CARBON" != "X" ]; then
 fi
 
 # Semi point lookups.
-python runTest.py $CARBONARG \
+python $mydir/runTest.py $CARBONARG \
 	-i $1 \
 	-v VAR_REQUESTS_PER_THREAD=500 \
 	-v VAR_NUM_THREADS=4 \
