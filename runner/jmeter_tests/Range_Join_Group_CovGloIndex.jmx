@@ -108,8 +108,8 @@ group by
               <assertions>false</assertions>
               <subresults>false</subresults>
               <responseData>false</responseData>
-              <samplerData>true</samplerData>
-              <xml>true</xml>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
               <fieldNames>true</fieldNames>
               <responseHeaders>false</responseHeaders>
               <requestHeaders>false</requestHeaders>
@@ -119,7 +119,7 @@ group by
               <bytes>true</bytes>
             </value>
           </objProp>
-          <stringProp name="filename">output.xml</stringProp>
+          <stringProp name="filename">output.csv</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
