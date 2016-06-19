@@ -29,8 +29,9 @@
       <hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
           <stringProp name="dataSource">pool</stringProp>
+          <!--select * from store_sales where ss_ticket_number=? and ss_store_sk=?-->
           <stringProp name="query">
-select * from store_sales where ss_ticket_number=? and ss_store_sk=?
+select ss_ticket_number, ss_store_sk from store_sales where ss_ticket_number=? and ss_store_sk=?
 </stringProp>
           <stringProp name="queryArguments">${ticket},${store}</stringProp>
           <stringProp name="queryArgumentsTypes">INTEGER,INTEGER</stringProp>
