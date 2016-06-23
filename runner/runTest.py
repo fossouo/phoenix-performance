@@ -131,9 +131,11 @@ def main():
 	jmx = fd.read()
 	for vars in variables:
 		var = vars[0]
-		if jmx.find(var) == -1:
-			assert False, "Undefined varible " + var
-		jmx = jmx.replace(var, vars[1])
+		if jmx.find(var) != -1:
+			jmx = jmx.replace(var, vars[1])
+		#if jmx.find(var) == -1:
+		#	assert False, "Undefined varible " + var
+		#jmx = jmx.replace(var, vars[1])
 
 	# Error out if we have any VARs that were not replaced.
 	m = re.search('(VAR_[A-Z_]+)', jmx)
