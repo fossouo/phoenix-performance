@@ -2,10 +2,13 @@
 
 # Use the Phoenix bulk loader to load data.
 # Data needs to have been generated using generate_data.sh prior to this step.
+ROOT_DIR=/opt/cloudera/parcels/PHOENIX-4.14.1-cdh5.16.2.p0.1216424
 
-PSQL=/usr/hdp/current/phoenix-client/bin/psql.py
+#PSQL=/usr/hdp/current/phoenix-client/bin/psql.py
+PSQL=$ROOT_DIR/lib/phoenix/bin/psql.py
 
-CLIENT=/usr/hdp/current/phoenix-client/phoenix-client.jar
+#CLIENT=/usr/hdp/current/phoenix-client/phoenix-client.jar
+CLIENT=$ROOT_DIR/lib/phoenix/phoenix-4.14.1-cdh5.16.2-client.jar
 
 function usage {
 	echo "Usage: load_data.sh scale_factor zk [temp_directory]"
@@ -49,10 +52,12 @@ ${PSQL} -t STORE_SALES ${ZOOKEEPER} ddl/DeleteFromStoreSales.sql
 cat ddl/majorCompactStoreSales | hbase shell
 
 # Bulk load the tables.
-HADOOP_COMPAT=/usr/hdp/current/hbase-client/lib/hbase-hadoop-compat.jar
-HADOOP2_COMPAT=/usr/hdp/current/hbase-client/lib/hbase-hadoop2-compat.jar
+#HADOOP_COMPAT=/usr/hdp/current/hbase-client/lib/hbase-hadoop-compat.jar
+HADOOP_COMPAT=$ROOT_DIR/lib/hive/lib/hbase-hadoop-compat.jar
+HADOOP2_COMPAT=$ROOT_DIR/lib/hive/lib/hbase-hadoop2-compat.jar
+#HADOOP2_COMPAT=/usr/hdp/current/hbase-client/lib/hbase-hadoop2-compat.jar
 export LIBJARS=$HADOOP_COMPAT,$HADOOP2_COMPAT
-export HADOOP_CLASSPATH=/etc/hbase/conf:/usr/hdp/current/hbase-client/lib/hbase-protocol.jar
+export HADOOP_CLASSPATH=/etc/hbase/conf:$ROOT_DIR/lib/sentry/lib/hbase-protocol.jar
 
 TABLES="store_sales"
 for t in $TABLES; do

@@ -2,7 +2,7 @@ Sample instructions:
 
 	# Build data. This sample is for a small sandbox.
 	./generate_data.sh 2 && \
-		./load_data.sh 2 sandbox.hortonworks.com:2181:/hbase-unsecure
+		./load_data.sh 2 dfossouo-1.dfossouo.root.hwx.site:2181:/hbase
 
 	# Edit testhosts to specify the hosts that will run JMeter.
 	# Assumes passwordless SSH access.
