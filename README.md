@@ -1,7 +1,8 @@
 Sample instructions:
 
 	# Build data. This sample is for a small sandbox.
-	./generate_data.sh 2 && \
+	# Define $ROOT_DIR for base directory HDP or CDH  
+        ./generate_data.sh 2 && \
 		./load_data.sh 2 dfossouo-1.dfossouo.root.hwx.site:2181:/hbase
 
 	# Edit testhosts to specify the hosts that will run JMeter.
